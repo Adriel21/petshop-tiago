@@ -32,11 +32,13 @@
       "categoria": "bem-estar"
     },
     {
-      "id": 4,
-      "titulo": "Uma onda de pets estressados",
-      "subtitulo": "Você está triste, doente ou nervoso, e o pet acaba imitando o seu comportamento",
-      "descricao": "Atenção e carinho. A primeira coisa que você deve saber, caso ainda não tenha adotado um pet, é que ele demanda tempo, atenção e carinho. Essas são as coisas mais importantes que você precisa ter em mente! Não se esqueça das brincadeiras! A interação com o dono também é fundamental para o bem-estar do pet. Por isso, além de oferecer brinquedos, procure brincar com o cão lançando bolinhas, brincando de esconde-esconde, etc., Evite deixar o bichinho sozinho por muito tempo.",
-      "categoria": "comportamento"
+      "0": {
+        "titulo": "Uma onda de pets estressados e lindos",
+        "subtitulo": "Você está triste, doente ou nervoso, e o pet acaba imitando o seu comportamento",
+        "descricao": "Atenção e carinho. A primeira coisa que você deve saber, caso ainda não tenha adotado um pet, é que ele demanda tempo, atenção e carinho. Essas são as coisas mais importantes que você precisa ter em mente! Não se esqueça das brincadeiras! A interação com o dono também é fundamental para o bem-estar do pet. Por isso, além de oferecer brinquedos, procure brincar com o cão lançando bolinhas, brincando de esconde-esconde, etc., Evite deixar o bichinho sozinho por muito tempo.",
+        "categoria": "comportamento"
+      },
+      "id": 4
     },
     {
       "id": 5,

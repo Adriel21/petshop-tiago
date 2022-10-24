@@ -8,4 +8,5 @@ root.render(
   <React.StrictMode>
     <App />
   </React.StrictMode>
+  // O strinctmode permite que o react valide duas vezes o código, para verificar se há problemas
 );
