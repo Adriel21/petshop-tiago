@@ -21,6 +21,7 @@ const ListaPosts = () => {
     getPosts();
   }, []);
 
+  // Uso de state imagem loading - uso de renderização condicional
   if (loading) {
     // return <mark style={{ backgroundColor: "red" }}>Carregando....</mark>;
     return <LoadingDesenho/>
