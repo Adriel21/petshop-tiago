@@ -13,3 +13,28 @@
   margin-bottom: 1rem;
   transition: transform 300ms;
 }
+
+.lista_posts a{
+  text-decoration: none;
+  color: #0c0c0d;
+}
+
+.lista_posts a:hover, .lista_posts a:focus{
+  color: #2320c9;
+}
+
+ /* .lista_posts article:hover{
+  transform: scale(1.06);
+}  */
+
+
+/* Quando um link contido em .post receber foco no teclado, também acionará a transformação */
+.post:hover, .post:has(> a:focus) {
+  transform: scale(1.05);
+} 
+
+/* Para padronizar o outline (bordinha que surge ao navegar via teclado)*/
+/* a:hover, a:focus{
+  outline-color: pointer;
+  transform: scale(1.01);
+} */
