@@ -28,6 +28,9 @@ const App = () => {
             <Route path="/posts/:id">
               <Post />
             </Route>
+             <Route path="/categoria/:id">
+              <Home />
+            </Route> 
             <Route path="/sobre">
               <Sobre />
             </Route>

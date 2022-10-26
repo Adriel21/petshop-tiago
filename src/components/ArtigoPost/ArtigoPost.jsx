@@ -2,6 +2,7 @@ import estilos from "./ArtigoPost.module.css";
 import { Link } from "react-router-dom";
 
 const ArtigoPost = (props) => {
+    
   return (
     <article className={props.classe}>
       <Link to={`/posts/${props.id}`}>

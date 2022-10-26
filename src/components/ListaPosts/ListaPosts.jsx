@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react"; // Hooks do React
+import { useHistory, useParams } from 'react-router-dom';
 
 import serverApi from "../../api/serverApi";
 import ArtigoPost from "../ArtigoPost/ArtigoPost";
@@ -26,6 +27,7 @@ const ListaPosts = () => {
     return <LoadingDesenho />;
   }
 
+  
   return (
     <div className={estilos.lista_posts}>
       {posts.map(({ id, titulo, subtitulo }) => (
