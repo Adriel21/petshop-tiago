@@ -3,7 +3,7 @@ import { useHistory, useParams } from 'react-router-dom';
 import estilo from './ListaCategorias.module.css';
 import serverApi from '../../api/serverApi';
 import LoadingDesenho from '../Loading/LoadingDesenho';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 
 const ListaCategorias = () => {
 
@@ -33,7 +33,7 @@ const ListaCategorias = () => {
 
 
       if (loading) {
-        return <LoadingDesenho />;
+        return <LoadingDesenho carrega={'Categorias'}/>;
       }
 
       console.log(categorias);
@@ -46,7 +46,7 @@ const ListaCategorias = () => {
             {/* Forma desestruturada, se não estivesse desestruturada seria com map((categiruas)) e para acessar seria categorias.nome */}
             {categorias.map(({id, nome}) => (
                 <li key={id} >
-                    <Link  to={`/categoria/${nome}`}>{nome}</Link>
+                    <NavLink  activeClassName={estilo.ative} to={`/categoria/${nome}`}  >{nome}</NavLink>
                 </li>
             ))}
         </ul>

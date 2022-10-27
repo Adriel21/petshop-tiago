@@ -29,3 +29,11 @@
     background-color: #2f88a8;
 }
 
+.lista_categorias a.ative {
+    /* background-color: red; */
+    background-color: black;
+  }
+
+
+
+

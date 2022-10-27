@@ -46,7 +46,7 @@ const Post = () => {
   // Uso de state imagem loading - uso de renderização condicional
   if (loading) {
     // return <mark style={{ backgroundColor: "red" }}>Carregando....</mark>;
-    return <LoadingDesenho/>
+    return <LoadingDesenho carrega={'Dados do Post'}/>
   } 
   
 
