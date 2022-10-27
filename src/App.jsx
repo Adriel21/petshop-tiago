@@ -7,6 +7,7 @@ import Pagina404 from "./pages/Pagina404/Pagina404";
 import Produtos from "./pages/Produtos/Produtos";
 import Sobre from "./pages/Sobre/Sobre";
 import Post from "./pages/Post/Post";
+import Categoria from "./pages/Categoria/Categoria";
 
 const App = () => {
   return (
@@ -28,8 +29,9 @@ const App = () => {
             <Route path="/posts/:id">
               <Post />
             </Route>
-             <Route path="/categoria/:id">
-              <Home />
+            {/* Estamos usando o :nome em vez de :id com o propósito de ter uma url amigável */}
+             <Route exact path="/categoria/:nome">
+              <Categoria />
             </Route> 
             <Route path="/sobre">
               <Sobre />
