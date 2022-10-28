@@ -7,10 +7,10 @@
     {
       "id": 2,
       "nome": "comportamento"
-    }, 
+    },
     {
-      "id" : 3,
-      "nome" : "dicas"
+      "id": 3,
+      "nome": "dicas"
     }
   ],
   "posts": [
@@ -71,5 +71,18 @@
       "categoria": "bem-estar"
     }
   ],
-  "contatos": []
+  "contatos": [
+    {
+      "nome": "Adriel Lira",
+      "email": "adrieldias@hotmail.com",
+      "mensagem": "Testando método Post",
+      "id": 1
+    },
+    {
+      "nome": "dfff",
+      "email": "adrieldias@hotmail.com",
+      "mensagem": " fc",
+      "id": 2
+    }
+  ]
 }
