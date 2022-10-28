@@ -11,6 +11,7 @@ const ListaPosts = ({url}) => {
 
   // console.log(props.url);
   useEffect(() => {
+    setLoading(true);
     async function getPosts() {
       try {
         // const resposta = await fetch(`${serverApi}/posts`);
@@ -35,7 +36,7 @@ const ListaPosts = ({url}) => {
     return <LoadingDesenho carrega={'Posts'}/>;
   }
 
-  // console.log(posts.nome[2])
+  // console.log(posts);
 
   if(posts.length !== 0) {
     return (
