@@ -135,6 +135,86 @@ Se passar a lista vazia (ou seja, deixar o [] vazio), `useEffect` executará som
 
 ## CSS: uso da pseudo-classe :has()
 
-https://css-tricks.com/the-css-has-selector/
+Referências:
 
-https://webkit.org/blog/13096/css-has-pseudo-class/
+`https://edrodrigues.com.br/blog/where-is-has-novos-seletores-css-que-facilitam-sua-vida/`
+
+`https://www.youtube.com/watch?v=Ia_4XdisCGQ`
+
+`https://css-tricks.com/the-css-has-selector/`
+
+`https://webkit.org/blog/13096/css-has-pseudo-class/`
+
+---
+
+## MUI: Biblioteca de componentes para React
+
+Site oficial: https://mui.com/pt/material-ui/getting-started/installation/
+
+Instalação: `npm install @mui/material @emotion/react @emotion/styled`
+
+_Dica CSS:_ https://code.tutsplus.com/pt/tutorials/the-30-css-selectors-you-must-memorize--net-16048
+
+---
+
+## Para usar o app PetShop e a API via rede local
+
+### package.json
+
+Altere a linha: `"api": "json-server --watch db.json --port 2112"`
+Para: `"api": "json-server --host NUMERO.IP.DA.SUA.MAQUINA db.json --port 2112"`
+
+Exemplo: `"api": "json-server --host 10.20.45.44 db.json --port 2112"`
+
+### servidor.api.js
+
+Duplique e comente a linha da constante atual (serverApi).
+
+Na versão descomentada, substitua o `localhost` pelo `número.ip.da.sua.maquina`.
+
+Pare a API no terminal e execute novamente `npm run api`.
+
+### Testando o app via celular
+
+1. Abra o Chrome (ou Safari no iOS) em seu celular
+2. Digite o número IP da sua máquina seguido de : e o número da porta usada pelo app React
+
+---
+
+## Tornando o app React em uma aplicação instalável no dispositivo (PWA)
+
+### Referências sobre PWA
+
+#### Aplicações Web Progressivas
+
+`https://web.dev/progressive-web-apps/`
+
+#### Web App Manifest File - Torne seu aplicativo da Web instalável
+
+`https://medium.com/@marcelohg/web-app-manifest-file-torne-seu-aplicativo-da-web-instal%C3%A1ve-4bf5d1dcbe7d`
+
+#### PWA Tips and tricks
+
+`https://robferguson.org/blog/2018/09/14/pwa-tips-and-tricks/`
+
+### Configurar arquivo manifest.json
+
+Um **arquivo de manifesto** é um arquivo JSON contendo informações sobre seu aplicativo web e, quando combinado com um **Service Worker**, permite a instalação do aplicativo em qualquer dispositivo compatível.
+
+### Configurar/Programar um Service Worker JavaScript
+
+Um **Service Worker** (Trabalhador/Manipulador de Serviços) é um script que o navegador executa em segundo plano separado da aplicação web, possibilitando recursos que não precisam de uma página ou interações com o usuário.
+
+O Service Worker está no centro de muitos recursos das chamadas **PWAs (Progressive Web Applications)**, tais como: cache offline, sincronização em segundo plano, notificações, execução independente do navegador mobile etc.
+
+### Passo a passo para transformação do app PetShop em PWA
+
+1. Configuração do manifest.json
+2. Criação dos arquivos sw-petshop.js e sw-registro.js
+3. Adicionar ao final da index.html os scripts sw-petshop.js (1º) e sw-registro.js (2º)
+4. Voltar no Chrome do computador, com o app ainda aberto, notar na barra de endereços o novo ícone de instalação
+5. Clique nele e instale seu App.
+6. Feche as janelas do navegador
+7. Procure em sua área de trabalho (ou menu Iniciar) o ícone do app PetShop
+8. No Android acesse o menu do Chrome e procure por **Adicionar à tela inicial**
+9. No iOS acesse o menu do Safaria e procure por **Adicionar à tela de início**
