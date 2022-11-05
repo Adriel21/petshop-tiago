@@ -1,5 +1,5 @@
 {
-  "short_name": "Petshop",
+   "short_name": "Petshop",
   "name": "Petshop incrível demais da conta",
   "description": "Exemplo de App React instalável em dispositivos",
   "icons": [
@@ -9,7 +9,7 @@
       "sizes": "256x256"
     }
   ],
-  "start_url": ".",
+  "start_url": "index.html",
   "scope": ".",
   "display": "standalone",
   "theme_color": "#000000",

@@ -2,7 +2,7 @@
 if ("serviceWorker" in navigator) {
     /* Faça o navegador registrar */
     navigator.serviceWorker
-      .register("sw-petshop.js")
+      .register("./sw-petshop.js")
       .then(function () {
         console.log("Service Worker foi registrado com sucesso!");
       })
