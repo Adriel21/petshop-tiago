@@ -1,82 +1,109 @@
 import { Button, TextField } from "@mui/material";
 import { useState } from "react";
+import { useHistory } from "react-router-dom";
 import serverApi from "../../api/serverApi";
+
 import Caixa from "../../components/Caixa/Caixa";
 import estilos from "./Contato.module.css";
+
 const Contato = () => {
-  // Eventos/funções  para captura da digitação dos campos
+  /* Eventos/Funções para captura da digitação nos campos */
   const inputNome = (event) => setNome(event.target.value);
   const inputEmail = (event) => setEmail(event.target.value);
   const inputMensagem = (event) => setMensagem(event.target.value);
 
-  // Hook useState para manipu
+  /* Hook useState para manipular os estados dos dados do componente */
   const [nome, setNome] = useState("");
   const [email, setEmail] = useState("");
   const [mensagem, setMensagem] = useState("");
 
+  /* Hook necessário para criar uma navegação/redirecionamento
+  manualmente (ou seja, sem depender dos routes) */
+  let history = useHistory();
+
   const enviarContato = async (event) => {
     event.preventDefault();
-    // console.log(nome, email, mensagem)
 
     const opcoes = {
       method: "POST",
-      body: JSON.stringify({nome, email, mensagem}),
+      body: JSON.stringify({ nome, email, mensagem }),
       headers: {
-        // Configurando cabeçalhos para requisições
-        "Content-type" : "application/json; charset=utf-8",
+        "Content-type": "application/json; charset=UTF-8",
       },
     };
-    // Script para envio dos dados para a API
+
+    /* Script para envio dos dados para a API */
     try {
       await fetch(`${serverApi}/contatos`, opcoes);
-      alert("Dados Enviados")
+      alert("Dados enviados!");
+      history.push("/"); // Redirecionar para a "home/blog"
     } catch (error) {
-      console.log("Deu ruim" . error.message)
+      console.log("Deu ruim: " + error.message);
     }
-  }
+  };
 
-  // 'Toggle' do botao: caso qualquer uma das variáveis seja undefined, desabilitado se manterá true e com isso o botão ficará desabilitado
-
-  // Quando deixarem de ser undefined, desabiltiado se tornará false e com isso o botão será habilitado
-  let desabilitado = !nome || !email || !mensagem;
   // let desabilitado = nome === "" || email === "" || mensagem === "";
 
+  /* "Toggle" do botão: caso qualquer uma das variáveis seja undefined,
+  desabilitado se manterá true e com isso o botão ficará desabilitado.
+  
+  Quando todas deixarem de ser undefined, desabilitado se tornará false e
+  com isso o botão será habilitado. */
+  let desabilitado = !nome || !email || !mensagem;
 
   return (
     <section>
       <h2 className={estilos.titulo_secao}>Fale Conosco</h2>
 
-      <Caixa id="contato">
-        {/* Não é necessário inserir o action pois é autogerenciado pelo react */}
-          <form action="" method="post" className={estilos.formulario}  onSubmit={enviarContato}>
-            <div>
-              {/* Propriedades para eventos sempre começam com On */}
-              {/* Sempre coloque a função sem parêntese para que ela só seja executada quando for chamada */}
-              <TextField  onChange={inputNome} required type="text" label="Nome Completo" variant="outlined" size="medium" fullWidth helperText="Você deve digitar um nome"/>
+      <Caixa>
+        <form
+          onSubmit={enviarContato}
+          className={estilos.formulario}
+          method="post"
+        >
+          <div>
+            <TextField
+              onChange={inputNome}
+              type="text"
+              label="Nome"
+              variant="outlined"
+              fullWidth
+              required
+              helperText={!nome ? "Você deve digitar o nome" : ""}
+            />
+          </div>
 
-              </div>
+          <div>
+            <TextField
+              onChange={inputEmail}
+              type="email"
+              label="E-mail"
+              variant="outlined"
+              fullWidth
+              required
+              helperText={!email ? "Informe um e-mail para contato" : ""}
+            />
+          </div>
 
-              <div>
-                <TextField 
-                onChange={inputEmail}
-                  type="email"
-                  label="E-mail"
-                  variant="outlined"
-                  fullWidth
-                  required
-                  helperText="Informe um email para contato"
-
-                />
-              </div>
-
-              <div>
-                <TextField onChange={inputMensagem} type="text" required label="Mensagem" variant="outlined" helperText="Fale o que você quiser" fullWidth multiline rows="6" />
-              </div>
-
-              <div>
-                <Button disabled={desabilitado} type="submit" variant="contained">Enviar</Button>
-               </div>
-          </form>
+          <div>
+            <TextField
+              onChange={inputMensagem}
+              type="text"
+              label="Mensagem"
+              variant="outlined"
+              fullWidth
+              required
+              helperText={!mensagem ? "Fale o que você quiser" : ""}
+              multiline
+              rows={6}
+            />
+          </div>
+          <div>
+            <Button type="submit" variant="contained" disabled={desabilitado}>
+              Enviar mensagem
+            </Button>
+          </div>
+        </form>
       </Caixa>
     </section>
   );
