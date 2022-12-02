@@ -22,8 +22,20 @@ const ListaPosts = ({ url }) => {
           `${serverApi}/${url != undefined ? url : "posts"}`
         ); */
 
-        const resposta = await fetch(`${serverApi}/${url}`);
-        const dados = await resposta.json();
+        const resposta = await fetch(`${serverApi}/posts.json`);
+        const dados = await resposta.json(); // ObJETÃO DE DADOS
+       
+        let listaDePost = [];
+
+        // loop para percorrer objetos 
+        for( const post in dados) {
+          const objetoPost = {
+            id: post, // a chave/string gerada pelo Firebase será como um id
+            subtitulo: dados[post].subtitulo,
+            descricao: dados[post].descricao,
+            categoria: dados[post].categoria,
+          }
+        }
         setPosts(dados);
         setLoading(false);
       } catch (error) {
